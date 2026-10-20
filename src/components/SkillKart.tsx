@@ -51,7 +51,17 @@ function Intro() {
     <div ref={ref} className="px-4 pb-20 pt-28 sm:px-8 sm:pt-40">
       <div className="flex flex-wrap items-baseline justify-between gap-4">
         <p className="mono uppercase text-white/50">Project 05 · Design Thinking · User Research · Product Concept</p>
-        <p className="mono uppercase" style={{ color: violet }}>{skillkart.credit}</p>
+        <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
+          <p className="mono uppercase" style={{ color: violet }}>{skillkart.credit}</p>
+          <a
+            href={skillkart.reportUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mono uppercase text-white/70 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white"
+          >
+            Full report ↗
+          </a>
+        </div>
       </div>
       <h2 className="mt-8 text-[20vw] font-semibold leading-[0.8] tracking-[-0.05em] sm:text-[15vw]">
         <MaskReveal>
@@ -302,6 +312,20 @@ function Transformation() {
           All they need is <em style={{ color: violet }}>a place to use it.&rdquo;</em>
         </MaskReveal>
       </blockquote>
+
+      <a
+        href={skillkart.reportUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group mt-16 inline-flex items-center gap-4 rounded-full border px-7 py-4 text-base font-medium transition-colors hover:text-[#0f0b14] sm:text-lg"
+        style={{ borderColor: violet, color: "#f1e9ff" }}
+        onMouseEnter={(e) => (e.currentTarget.style.background = violet)}
+        onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+      >
+        Read the full SkillKart book
+        <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
+      </a>
+      <p className="mono mt-4 text-white/40">Opens the 40-page flipbook in a new tab</p>
     </div>
   );
 }

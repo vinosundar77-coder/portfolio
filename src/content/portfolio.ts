@@ -255,4 +255,5 @@ export const skillkart = {
   before: ["No exposure", "Skills unnoticed", "Low confidence", "Limited opportunities"],
   after: ["Visible skills", "Real gigs", "Experience", "Earnings", "Reviews", "Confidence"],
   closing: "Every student carries a skill. All they need is a place to use it.",
+  reportUrl: "https://heyzine.com/flip-book/b58dd032c9.html",
 };
