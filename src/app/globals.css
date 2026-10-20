@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f3ede2;
+  --color-ivory: #faf6ee;
+  --color-burgundy: #5c0f1b;
+  --color-wine: #8a1c2b;
+  --color-ink: #151111;
+  --color-muted: #857a72;
+  --color-blush: #e9c9c4;
+  --color-regency: #dde5ea;
+  --color-zouk: #3a1311;
+  --color-mustard: #d8a25a;
+  --color-terracotta: #b5653f;
+  --color-sage: #8e9a7b;
+  --color-cocoa: #4a2a1d;
+  --color-violet: #9b4dff;
+  --font-serif: "Instrument Serif", "Times New Roman", serif;
+  --font-sans: "Inter Tight Variable", "Inter Tight", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+html {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body {
+  font-family: var(--font-sans);
+  background: var(--color-cream);
+  overflow-x: clip;
+}
+::selection {
+  background: var(--color-burgundy);
+  color: var(--color-ivory);
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.font-display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+/* Film grain — subtle paper texture over everything */
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: -50%;
+  z-index: 60;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: grain 1.2s steps(6) infinite;
+}
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -1%); }
+  80% { transform: translate(3%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Zouk block-print pattern */
+.block-print {
+  background-color: var(--color-zouk);
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(216, 162, 90, 0.16) 0 3px, transparent 3.5px),
+    radial-gradient(circle at 0 0, rgba(216, 162, 90, 0.1) 0 9px, transparent 9.5px),
+    radial-gradient(circle at 100% 100%, rgba(216, 162, 90, 0.1) 0 9px, transparent 9.5px),
+    radial-gradient(circle at 100% 0, rgba(216, 162, 90, 0.1) 0 9px, transparent 9.5px),
+    radial-gradient(circle at 0 100%, rgba(216, 162, 90, 0.1) 0 9px, transparent 9.5px);
+  background-size: 44px 44px;
+}
+
+/* SkillKart grid paper */
+.blueprint {
+  background-color: #0f0b14;
+  background-image:
+    linear-gradient(rgba(155, 77, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(155, 77, 255, 0.08) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Envelope flap mask for Koskii */
+.envelope-mask {
+  clip-path: polygon(0 14%, 50% 0, 100% 14%, 100% 100%, 0 100%);
+}
+.arch-mask {
+  border-radius: 999px 999px 0 0;
+}
+.scalloped {
+  --s: 10px;
+  mask:
+    radial-gradient(var(--s) at 50% var(--s), #000 97%, #0000) 50% calc(-1 * var(--s)) / calc(2 * var(--s)) 100% repeat-x,
+    linear-gradient(#000 0 0) 0 var(--s) / 100% 100% no-repeat;
+}
+
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .grain { animation: none; }
+}
